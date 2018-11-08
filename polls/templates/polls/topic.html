@@ -1,0 +1,17 @@
+{% extends 'polls/base.html' %}
+
+{# 这是当前主题的列表页 #}
+
+{% block content %}
+
+	<h1>{{ topic.text }}</h1>
+	{% if entries %}
+		{% for entry in entries %}
+		<ul>
+			<li>{{ entry.text }}</li>
+			<span>{{ entry.date_added|date:'Y-m-d' }}</span>
+		</ul>
+		{% endfor %}
+	{% endif %}
+
+{% endblock content %}

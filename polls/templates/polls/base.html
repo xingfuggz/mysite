@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的网站</title>
+</head>
+<body>
+	<a href="{% url 'polls:index' %}">首页</a> >>
+	<a href="{% url 'polls:topics' %}">列表页</a>
+	{% block content %}
+
+	{% endblock content %}
+</body>
+</html>

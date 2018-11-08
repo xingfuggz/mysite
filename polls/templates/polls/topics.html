@@ -1,0 +1,18 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+{# 这是主题的列表页 #}
+
+{% if topics %}
+	{% for topic in topics %}
+<ul>
+	<li><a href="{% url 'polls:topic' topic.id %}">{{ topic.text }}</a></li>
+</ul>
+
+	{% endfor %}
+{% else %}
+	<p>还没有发表任何主题</p>
+{% endif %}
+
+
+{% endblock content %}
