@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'users.apps.UsersConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # 我的设置
 LOGIN_URL = '/users/login/'
+# django-bootstrap3的设置
+BOOTSTRAP3 = {
+    'include_jquery': True,
+    }

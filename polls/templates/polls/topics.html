@@ -1,39 +1,16 @@
-{% extends 'polls/base.html' %}
-
+{% extends "polls/base.html" %}
+{% block header %}
+<h1>笔记列表</h1>
+{% endblock header %}
 {% block content %}
-{# 这是主题的列表页 #}
-
-<!--{% if topics %}
-	{% for topic in topics %}
 <ul>
-	<li><a href="{% url 'polls:topic' topic.id %}">{{ topic.text }}</a></li>
+{% for topic in topics %}
+<li>
+<h3><a href="{% url 'polls:topic' topic.id %}">{{ topic }}</a></h3>
+</li>
+{% empty %}
+<li>No topics have been added yet.</li>
+{% endfor %}
 </ul>
-
-	{% endfor %}
-{% else %}
-	<p>还没有发表任何主题</p>
-{% endif %}
-<a href="{% url 'polls:new_topic' %}">添加新主题</a>-->
-
-<div class="card">
-    <div class="card-body">
-      <blockquote class="blockquote text-center">
-        <p class="mb-0">这是学习笔记的所有列表</p>
-        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-      </blockquote>
- 
-        <ul class="list-group list-group-flush">
-            {% for topic in topics %}
-              <li class="list-group-item"><a href="{% url 'polls:topic' topic.id %}">{{ topic }}</a><span class=float-right>{{ topic.date_added | date:"Y-m-d" }}</span></li>
-              
-            {% empty %}
-              <li class="list-group-item">还没有添加任何的学习笔记.</li>
-            {% endfor %}
-        </ul>
-          
-          <a class="btn btn-success btn-lg btn-block" href="{% url 'polls:new_topic' %}">添加笔记章节</a>
-    </div>
-  </div>
-
-
+<a class="btn btn-success btn-lg btn-block" href="{% url 'polls:new_topic' %}">添加一条新笔记</a>
 {% endblock content %}

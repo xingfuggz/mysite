@@ -1,5 +1,15 @@
 {% extends "polls/base.html" %}
+{# 头部 #}
+{% block header %}
+<div class='jumbotron'>
+<h1>一个小巧而灵活的笔记系统</h1>
+</div>
+{% endblock header %}
+
 
 {% block content %}
 
+<h2>
+<a href="{% url 'users:register' %}">注册一个账户</a> 开始制作您自己的学习日志，并列出您正在学习的主题。</h2>
+<h2>每当您学习有关某个主题的新内容时，请输入一个条目，总结您所学到的内容！</h2>
 {% endblock content %}

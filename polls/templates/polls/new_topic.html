@@ -1,23 +1,15 @@
-{% extends 'polls/base.html' %}
+{% extends "polls/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+<h2>Add a new topic:</h2>
+{% endblock header %}
 {% block content %}
-
-<!-- <form action="{% url 'polls:new_topic' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
+<form action="{% url 'polls:new_topic' %}" method='post'
+class="form">
+{% csrf_token %}
+{% bootstrap_form form %}
+{% buttons %}
+<button name="submit" class="btn btn-primary">add topic</button>
+{% endbuttons %}
 </form>
- -->
-
-   <p>添加笔记章节:</p>
-  <form action="{% url 'polls:new_topic' %}" method="post">
-  <div class="input-group mb-3">
-      {% csrf_token %}
-      <input type="text" name="text" class="form-control" placeholder="添加笔记章节" 
-      aria-label="Recipient's username" aria-describedby="basic-addon2" required id="id_text">
-      <div class="input-group-append">
-        <button type="submit" class="btn btn-primary">点击提交</button>
-      </div>
-    </div>
-  </form>
-
 {% endblock content %}
