@@ -13,5 +13,6 @@
 		</ul>
 		{% endfor %}
 	{% endif %}
+<a href="{% url 'polls:new_entry' topic.id %}">添加学习内容</a>
 
 {% endblock content %}

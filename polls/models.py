@@ -5,7 +5,7 @@ from django.db import models
 class Topic(models.Model):
 	''' 文档主题 '''
 	text = models.CharField('主题', max_length=200)
-	date_added = models.DateTimeField('发布时间')
+	date_added = models.DateTimeField('发布时间', auto_now_add=True)
 
 	class Meta:
 		ordering = ['text']
