@@ -1,0 +1,10 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+<h1><a href="{% url 'polls:topic' topic.id %}">{{ topic.text }}</a></h1>
+	<form action="{% url 'polls:new_entry' topic.id %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit">
+	</form>
+{% endblock content %}
