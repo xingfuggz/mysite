@@ -1,10 +1,20 @@
 {% extends 'polls/base.html' %}
 
 {% block content %}
-<h1><a href="{% url 'polls:topic' topic.id %}">{{ topic.text }}</a></h1>
-	<form action="{% url 'polls:new_entry' topic.id %}" method="post">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="Submit">
-	</form>
+
+<h1 class="text-center"><a href="{% url 'polls:topic' topic.id %}">{{ topic }}</a></h1>
+  <hr/>
+ 
+  
+<form action="{% url 'polls:new_entry' topic.id %}" method='post'>
+  {% csrf_token %}
+  <div class="form-group">
+      <label for="exampleFormControlTextarea1">添加一条新笔记:</label>
+      <textarea class="form-control" name="text" required id="id_text" rows="10"></textarea>
+</div>
+
+    <button class="btn btn-success btn-lg btn-block" name='submit'>提交新笔记</button>
+
+</form>
+
 {% endblock content %}

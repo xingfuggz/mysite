@@ -2,17 +2,31 @@
 
 {# 这是当前主题的列表页 #}
 
-{% block content %}
+  {% block content %}
 
-	<h1>{{ topic.text }}</h1>
-	{% if entries %}
-		{% for entry in entries %}
-		<ul>
-			<li>{{ entry.text }}</li>
-			<span>{{ entry.date_added|date:'Y-m-d' }}</span>
-		</ul>
-		{% endfor %}
-	{% endif %}
-<a href="{% url 'polls:new_entry' topic.id %}">添加学习内容</a>
+	<div class="border ">
+		<ul class="list-group list-group-flush">
+		<li class="list-group-item"><h1 class="text-center font-weight-bold text-dark">{{ topic.text }}</h1></li>
 
-{% endblock content %}
+		{% if entries %}
+			{% for entry in entries %}
+			 <li  class="list-group-item">
+			 	<p>{{ entry.text|linebreaks }}</p>
+			 	<p class="text-right">
+			 		{{ entry.date_added|date:'Y-m-d' }}
+			 		<a href="{% url 'polls:edit_entry' entry.id %}"> >>>编辑</a>
+			 	</p>
+			 </li>
+			{% endfor %}
+		{% else %}
+			<p>还没有任何笔记</p>
+		{% endif %}
+<a class="btn btn-success btn-lg btn-block" href="{% url 'polls:new_entry' topic.id %}">添加学习内容</a>
+	</div>
+
+
+{% endblock content %}   
+
+
+
+

@@ -1,0 +1,13 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+  
+  <p>您正在修改这条笔记:</p>
+
+ <form  action="{% url 'polls:edit_entry' entry.id %}" method='POST'>
+    {% csrf_token %}  
+   {{ form.as_p }}
+    <button class="btn btn-success btn-lg btn-block" name='submit'>提交修改</button>
+  </form> 
+
+{% endblock content %}
