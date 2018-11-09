@@ -1,11 +1,12 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Topic(models.Model):
 	''' 文档主题 '''
 	text = models.CharField('主题', max_length=200)
 	date_added = models.DateTimeField('发布时间', auto_now_add=True)
+	owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
 	class Meta:
 		ordering = ['text']

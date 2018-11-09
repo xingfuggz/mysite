@@ -1,12 +1,16 @@
 {% extends "polls/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+  <p>您正在修改这条笔记:</p>
+{% endblock header %}
 
 {% block content %}
-  
-  <p>您正在修改这条笔记:</p>
 
  <form  action="{% url 'polls:edit_entry' entry.id %}" method='POST'>
     {% csrf_token %}  
-   {{ form.as_p }}
+   
+   {% bootstrap_form form %}
+
     <button class="btn btn-success btn-lg btn-block" name='submit'>提交修改</button>
   </form> 
 

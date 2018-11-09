@@ -12,7 +12,7 @@ class EntryForm(ModelForm):
 	class Meta:
 		model = Entry
 		fields = ['text']
-		labels = {'text':'添加笔记'}
+		labels = {'text':'修改笔记'}
 		widgets = {
 			'text':Textarea(attrs={'cols':80, 'rows':20}),
 		}
